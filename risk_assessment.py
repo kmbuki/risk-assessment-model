@@ -80,8 +80,8 @@ with st.sidebar:
         else:
             consequence_answers = 1 + consequence_answers
     st.divider()
-    st.markdown('Version 0.0.3')
-    st.markdown('Developed by D.M. Budd, P.Eng.')
+    st.markdown('Version 0.1.5')
+    st.markdown('Developed by Ken Mbuki.')
 
 if likelihood_answers == 0:
     likelihood_answers = 1
@@ -241,9 +241,19 @@ if y_pt >= 3:
 else:
     y_text_offset = 45
 
+# DESCRIPTION
+header = st.container()
+with header:
+    st.title('Practice Risk Assessment Tool')
+    st.markdown('Answer the questions in the sidebar by selecting options and sliding the bar to the appropriate \
+    position. There are two sections to complete. If a question does not apply to your practice, answer "N/A".')
+    st.markdown('The risk assessment score is calculated by dividing the sum of each section by the number \
+    of questions answered. The raw score is plotted. The reported risk assessment category is based on the raw score.')
+    st.markdown(' @kmbuki on Git for any feedback or inquiries.')
+    st.divider()
 
 # PLOTTING
-ax.set_title('Table B-1 Risk Assessment Matrix (EGBC)')
+ax.set_title('Project Risk Assessment Matrix')
 ax.plot(x_user, y_user, color='black', marker='o', markersize=8)
 # Removed normalized score from being plotted
 # ax.plot(x_user_norm, y_user_norm, marker='s', color='blue', markersize=8, markerfacecolor='none', markeredgecolor='blue')
@@ -281,14 +291,3 @@ st.markdown(f"Likelihood of Failure = **{round(y_pt,1)}** or **{report_likelihoo
 st.markdown(f"The Risk Assessment score is **({int(x_pt_norm)}, {int(y_pt_norm)})** or **{report_ra}**")
 
 
-# DESCRIPTION
-header = st.container()
-with header:
-    st.title('Practice Risk Assessment Tool')
-    st.markdown('Answer the questions in the sidebar by selecting options and sliding the bar to the appropriate \
-    position. There are two sections to complete. If a question does not apply to your practice, answer "N/A".')
-    st.markdown('The risk assessment score is calculated by dividing the sum of each section by the number \
-    of questions answered. The raw score is plotted. The EGBC Guide indicates that a whole number score \
-    can be used for reporting. The reported risk assessment category is based on the raw score.')
-    st.markdown('Email mbuki.messi@gmail.com for any feedback or inquiries.')
-    st.divider()
