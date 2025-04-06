@@ -255,7 +255,7 @@ else:
 # DESCRIPTION
 header = st.container()
 with header:
-    st.title('Project Risk Assessment Tool')
+    st.title('AI Project Risk Assessment Tool & Advisor')
     st.markdown('Answer the questions in the sidebar by selecting options and sliding the bar to the appropriate \
     position. There are two sections to complete. If a question does not apply to your practice, answer "N/A".')
     st.markdown('The risk assessment score is calculated by dividing the sum of each section by the number \
@@ -300,7 +300,7 @@ st.markdown(f"Consequence of Failure = **{round(x_pt,1)}** or **{report_conseque
 st.markdown(f"Likelihood of Failure = **{round(y_pt,1)}** or **{report_likelihood}**")
 st.markdown(f"The Risk Assessment score is **({int(x_pt_norm)}, {int(y_pt_norm)})** or **{report_ra}**")
 
-st.subheader("AI Chat App", divider="rainbow", anchor=False)
+st.subheader("Chat with the Risk Advisor", divider="rainbow", anchor=False)
 
 
 # Initialize chat history and selected model
