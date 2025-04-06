@@ -16,6 +16,9 @@ client = Groq(
 )
 api_key = os.getenv("GROQ_API_KEY")
 
+st.set_page_config(page_icon="💬", layout="wide",
+                   page_title="Project Risk Assessment Tool")
+
 # QUESTIONS FOR LIKELIHOOD OF FAILURE
 Q1 = "Is the project scope clearly defined and agreed upon by all stakeholders?"
 Q2 = "Are the project goals realistic and achievable within the given time and resources?"
