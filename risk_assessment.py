@@ -3,9 +3,18 @@ import time
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
+import os 
 import matplotlib.lines as mlines
 from typing import Generator
 from groq import Groq
+
+# Initialize Groq client
+# Ensure the API key is set in the environment or Streamlit secrets
+# If using Streamlit Cloud, set the API key in the secrets.toml file
+client = Groq(
+    api_key=st.secrets["GROQ_API_KEY"],
+)
+api_key = os.getenv("GROQ_API_KEY")
 
 # QUESTIONS FOR LIKELIHOOD OF FAILURE
 Q1 = "Is the project scope clearly defined and agreed upon by all stakeholders?"
@@ -293,9 +302,6 @@ st.markdown(f"The Risk Assessment score is **({int(x_pt_norm)}, {int(y_pt_norm)}
 
 st.subheader("AI Chat App", divider="rainbow", anchor=False)
 
-client = Groq(
-    api_key=st.secrets["GROQ_API_KEY"],
-)
 
 # Initialize chat history and selected model
 if "messages" not in st.session_state:
